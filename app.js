@@ -19,8 +19,8 @@ const getYearlyPress = require("./routes/press/getYearlyPress");
 const getYearsArray = require("./routes/press/getYearsArray");
 const postPress = require("./routes/press/postPress");
 
-const post_advertisment = require("./routes/advertisment_borad/post_advertisment");
-const get_advertisments = require("./routes/advertisment_borad/get_advertisments");
+const post_advertisment = require("./routes/advertisment_board/post_advertisment");
+const get_advertisments = require("./routes/advertisment_board/get_advertisments");
 
 // list-of-members
 app.use(postMemberDetails);
