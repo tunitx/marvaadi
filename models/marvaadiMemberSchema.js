@@ -1,35 +1,38 @@
-
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const marvaadiMemberSchema = new mongoose.Schema({
+  pfp: {
+    type: String,
+    required: true,
+  },
   memberType: {
     type: String,
-    required: true
+    required: true,
   },
   name: {
     type: String,
-    required: true
+    required: true,
   },
   profession: {
     type: String,
-    required: true
+    required: true,
   },
   nativePlace: {
     type: String,
-    required: true
+    required: true,
   },
   email: {
     type: String,
-    required: true
+    required: true,
   },
   address: {
     type: String,
-    required: true
+    required: true,
   },
   phoneNumber: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
-module.exports = mongoose.model('MarvaadiMember', marvaadiMemberSchema);
+module.exports = mongoose.model("MarvaadiMember", marvaadiMemberSchema);

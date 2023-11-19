@@ -1,15 +1,17 @@
+//? setting up mongo connection
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
+const dotenv = require("dotenv");
+dotenv.config();
 
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/marvaadi' , {
+const connectionURL =
+  process.env.MONGO_URL || "mongodb://127.0.0.1:27017/marvaadi";
+mongoose.connect(connectionURL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false
-}).then(() => {
-  console.log('MongoDB connected');
-}).catch((err) => {
-  console.log('MongoDB connection error:', err);
 });
+const db = mongoose.connection;
+db.on("error", console.error.bind(console, "MongoDB connection error:"));
+db.once("open", () => console.log("Connected to MongoDB"));
 
-module.exports = mongoose.connection;
+module.exports = db;
