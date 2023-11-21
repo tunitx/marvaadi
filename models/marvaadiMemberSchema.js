@@ -6,7 +6,8 @@ const marvaadiMemberSchema = new mongoose.Schema({
     required: true,
   },
   memberType: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "MemberType",
     required: true,
   },
   name: {

@@ -3,6 +3,8 @@ const router = express.Router();
 const Member = require("../../models/marvaadiMemberSchema");
 const db = require("../../utils/db");
 
+const MemberType = require("../../models/memberTypeSchema");
+
 const uploadS3 = require("../../utils/awsConfig");
 
 router.post("/postMemberDetails", uploadS3.single("pfp"), async (req, res) => {
@@ -17,6 +19,11 @@ router.post("/postMemberDetails", uploadS3.single("pfp"), async (req, res) => {
       memberType,
     } = req.body;
 
+    // console.log(memberType);
+
+    const memberTypeObject = await MemberType.findOne({ id: memberType });
+    // console.log(memberTypeObject);
+
     const member = new Member({
       name,
       profession,
@@ -24,9 +31,10 @@ router.post("/postMemberDetails", uploadS3.single("pfp"), async (req, res) => {
       email,
       address,
       phoneNumber,
-      memberType,
+      memberType: memberTypeObject,
       pfp: req.file.location,
     });
+    // console.log(member);
     await member.save();
     res.status(201).send(member);
   } catch (error) {
