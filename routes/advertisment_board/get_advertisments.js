@@ -7,9 +7,9 @@ router.get("/advertisment/all", async (req, res) => {
   try {
     const advertisments = await Advertisment.find();
 
-    console.log(advertisments);
+    // console.log(advertisments);
 
-    // res.status(200).json(members);
+    res.status(200).json(advertisments);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

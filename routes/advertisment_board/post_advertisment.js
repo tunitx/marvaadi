@@ -43,11 +43,11 @@ router.post(
 
       //   res.status(200).json({ message: "okauy" });
 
-      //   await advertisment.save();
+      await advertisment.save();
 
-      res.status(200).send(advertisment);
+      res.status(201).send(advertisment);
     } catch (e) {
-      res.status(400).send(error);
+      res.status(400).send(e);
     }
   }
 );

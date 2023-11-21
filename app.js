@@ -12,6 +12,9 @@ app.use(cors());
 
 const postMemberDetails = require("./routes/list_of_members/postMemberDetails");
 const getMemberDetails = require("./routes/list_of_members/getMemberDetails");
+const addNewMemberType = require("./routes/list_of_members/addNewMemberType");
+const getMemberTypes = require("./routes/list_of_members/getMemberTypes");
+const getAvailableMemberType = require("./routes/list_of_members/getAvailableMemberType");
 
 const getAllPress = require("./routes/press/getAllPress");
 const getMonthlyPress = require("./routes/press/getMonthlyPress");
@@ -25,6 +28,9 @@ const get_advertisments = require("./routes/advertisment_board/get_advertisments
 // list-of-members
 app.use(postMemberDetails);
 app.use(getMemberDetails);
+app.use(addNewMemberType);
+app.use(getMemberTypes);
+app.use(getAvailableMemberType);
 
 // press
 app.use(getAllPress);

@@ -38,7 +38,7 @@ router.post("/press/new", uploadS3.single("image"), async (req, res, next) => {
     });
     await press.save();
 
-    res.status(200).json(press);
+    res.status(201).json(press);
   } catch (err) {
     res.status(500).json({ message: err.message });
   }
