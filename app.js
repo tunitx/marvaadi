@@ -5,6 +5,7 @@ const db = require("./utils/db");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
+
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
