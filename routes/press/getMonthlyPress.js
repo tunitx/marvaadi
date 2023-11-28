@@ -8,7 +8,7 @@ router.get("/press/months/:year/:month", async (req, res, next) => {
     const { year, month } = req.params;
     const data = await Press.find({ year: year, month: month });
 
-    console.log(data);
+    // console.log(data);
 
     res.status(200).json(data);
   } catch (err) {

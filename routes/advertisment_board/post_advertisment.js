@@ -5,8 +5,11 @@ const Advertisment = require("../../models/advertismentSchema");
 
 const uploadS3 = require("../../utils/awsConfig");
 
+const verifyToken = require("../../utils/auth/verifyToken");
+
 router.post(
   "/advertisment/new",
+  verifyToken,
   uploadS3.single("businessImage"),
   async (req, res, next) => {
     try {
@@ -38,8 +41,6 @@ router.post(
         youtube,
         website,
       });
-
-      console.log(advertisment);
 
       //   res.status(200).json({ message: "okauy" });
 

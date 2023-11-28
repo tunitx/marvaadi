@@ -3,7 +3,9 @@ const router = express.Router();
 
 const MemberType = require("../../models/memberTypeSchema");
 
-router.post("/member/memberType/new", async (req, res) => {
+const verifyToken = require("../../utils/auth/verifyToken");
+
+router.post("/member/memberType/new", verifyToken, async (req, res) => {
   try {
     const { name, id } = req.body;
     const member = new MemberType({

@@ -5,7 +5,6 @@ const db = require("./utils/db");
 const dotenv = require("dotenv");
 const cors = require("cors");
 
-
 dotenv.config();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -25,6 +24,11 @@ const postPress = require("./routes/press/postPress");
 
 const post_advertisment = require("./routes/advertisment_board/post_advertisment");
 const get_advertisments = require("./routes/advertisment_board/get_advertisments");
+
+const adminSignin = require("./routes/admin/adminSignin");
+
+// admin
+app.use(adminSignin);
 
 // list-of-members
 app.use(postMemberDetails);

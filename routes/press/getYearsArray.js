@@ -10,7 +10,7 @@ router.get("/press/yearsList", async (req, res, next) => {
       .sort({ year: -1 })
       .exec();
 
-    console.log(data);
+    // console.log(data);
 
     res.status(200).json(data);
   } catch (err) {

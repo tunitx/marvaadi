@@ -7,7 +7,7 @@ router.get("/member/memberType/all", async (req, res, next) => {
   try {
     const memberTypeList = await MemberType.find({});
 
-    console.log(memberTypeList);
+    // console.log(memberTypeList);
 
     res.status(200).json(memberTypeList);
   } catch (e) {
